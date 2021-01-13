@@ -15,4 +15,8 @@ impl WorldData {
             colliders: DefaultColliderSet::new(),
         }
     }
+
+    pub fn get_body_count(&self) -> usize {
+        return self.bodies.iter().size_hint().0;
+    }
 }

@@ -1,16 +1,20 @@
 extern crate nalgebra as na;
 
+use wasm_bindgen::prelude::*;
 use na::Vector3;
 use nphysics3d::world::*;
 
 pub mod data;
 
+
+#[wasm_bindgen]
 pub struct World {
     mechanical_world: DefaultMechanicalWorld<f32>,
     geometrical_world: DefaultGeometricalWorld<f32>,
-    world_data: data::WorldData,
+    pub(crate) world_data: data::WorldData,
 }
 
+#[wasm_bindgen]
 impl World {
     // implement all of the functions
     fn new() -> World {
@@ -22,8 +26,8 @@ impl World {
     }
 
     /// Sets the gravity to a new value
-    pub fn set_gravity(&mut self, gravity: Vector3<f32>) {
-        self.mechanical_world.gravity = gravity;
+    pub fn set_gravity(&mut self, x: f32, y: f32, z: f32) {
+        self.mechanical_world.gravity = Vector3::new(x, y, z);
     }
 }
 

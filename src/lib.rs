@@ -1,5 +1,8 @@
+use std::string;
+
 use wasm_bindgen::prelude::*;
 use web_sys::console;
+use world::World;
 
 mod world;
 
@@ -18,8 +21,25 @@ pub fn main_js() -> Result<(), JsValue> {
 
     let sim_world = world::setup();
 
-    // Your code goes here!
+    let size = sim_world.world_data.get_body_count();
+
+    console::log_1(&JsValue::from_str(&size.to_string()));
+
     console::log_1(&JsValue::from_str("Hello world!"));
 
     Ok(())
+}
+
+#[wasm_bindgen]
+pub fn create_world() -> World {
+    
+    let sim_world = world::setup();
+
+    let size = sim_world.world_data.get_body_count();
+
+    unsafe {
+        console::log_1(&JsValue::from_str(&size.to_string()));
+    }
+
+    return sim_world;
 }
