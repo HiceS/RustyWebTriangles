@@ -1,6 +1,6 @@
 [package]
 name = "rusty_web_triangles"
-version = "0.1.2"
+version = "0.1.3"
 authors = ["Shawn Hice <shawnhice@gmail.com>"]
 edition = "2018"
 
@@ -11,21 +11,17 @@ crate-type = ["cdylib"]
 
 [dependencies]
 wasm-bindgen = "0.2.69"
+nalgebra = "0.20"
+ncollide3d = "0.22"
+nphysics3d = { version = "0.14", default-features = false, features = [ "dim3", "use-wasm-bindgen" ] }
 
-# The `web-sys` crate allows you to interact with the various browser APIs,
-# like the DOM.
 [dependencies.web-sys]
 version = "0.3.22"
 features = ["console"]
 
-# The `console_error_panic_hook` crate provides better debugging of panics by
-# logging them with `console.error`. This is great for development, but requires
-# all the `std::fmt` and `std::panicking` infrastructure, so it's only enabled
-# in debug mode.
 [target."cfg(debug_assertions)".dependencies]
 console_error_panic_hook = "0.1.5"
 
-# These crates are used for running unit tests.
 [dev-dependencies]
 wasm-bindgen-test = "0.2.45"
 futures = "0.1.27"
