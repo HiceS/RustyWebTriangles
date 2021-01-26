@@ -1,4 +1,4 @@
-# RustyWebTriangles <img alt="npm" src="https://img.shields.io/npm/v/rusty_web_triangles">
+# RustyWebTriangles <a href="https://www.npmjs.com/package/rusty_web_triangles"><img alt="npm" src="https://img.shields.io/npm/v/rusty_web_triangles"></a> <a href="https://github.com/HiceS/RustyWebTriangles/actions">![Rust](https://github.com/HiceS/RustyWebTriangles/workflows/Rust/badge.svg)</a>
 
 This repo is for directly integrating the Three JS data into the NPhysics3D Rust physics library.
 
