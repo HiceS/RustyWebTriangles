@@ -29,17 +29,30 @@ impl World {
     pub fn set_gravity(&mut self, x: f32, y: f32, z: f32) {
         self.mechanical_world.gravity = Vector3::new(x, y, z);
     }
+
+    pub fn step(&mut self, delta: i32){
+        self.world_data.world_step(
+            &mut self.mechanical_world,
+            &mut self.geometrical_world
+        );
+    }
 }
 
 pub fn setup() -> World{
     return World::new();
-    // let mut mech_world = DefaultMechanicalWorld::new(Vector3(0.0, -9.8, 0.0));
-    // let mut geo_world = DefaultGeometricalWorld::new();
-
-    // let mut bodies = DefaultBodySet::new();
-    // let mut colliders = DefaultColliderSet::new();
-    // let mut joint_constraints = DefaultJointConstraintSet::new();
-    // let mut force_generators = DefaultForceGeneratorSet::new();
 
     // now that the world variables have been configured we can step the simulation
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn step_world() {
+        let mut world: World = World::new();
+        world.set_gravity(0.0, -9.8, 0.0);
+        world.step(13);
+        assert!(world.world_data.get_body_count() >= 0)
+    }
 }
