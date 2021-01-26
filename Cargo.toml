@@ -1,10 +1,13 @@
 [package]
 name = "rusty_web_triangles"
 description = "Custom WASM implementation of the nphysics3d library to be used with three js"
-version = "0.1.4"
+version = "0.1.7"
 authors = ["Shawn Hice <shawnhice@gmail.com>"]
 edition = "2018"
 repository = "https://github.com/HiceS/RustyWebTriangles"
+readme = "README.md"
+license = "BSD-3"
+license-file = "LICENSE"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -12,10 +15,11 @@ repository = "https://github.com/HiceS/RustyWebTriangles"
 crate-type = ["cdylib"]
 
 [dependencies]
-wasm-bindgen = "0.2.69"
+wasm-bindgen = "0.2.70"
 nalgebra = "0.20"
 ncollide3d = "0.22"
 nphysics3d = { version = "0.14", default-features = false, features = [ "dim3", "use-wasm-bindgen" ] }
+uuid = { version = "0.8", features = ["wasm-bindgen", "v4"] }
 
 [dependencies.web-sys]
 version = "0.3.22"

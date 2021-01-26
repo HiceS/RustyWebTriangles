@@ -37,9 +37,7 @@ pub fn create_world() -> World {
 
     let size = sim_world.world_data.get_body_count();
 
-    unsafe {
-        console::log_1(&JsValue::from_str(&size.to_string()));
-    }
+    console::log_1(&JsValue::from_str(&size.to_string()));
 
     return sim_world;
 }
